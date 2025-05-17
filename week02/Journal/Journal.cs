@@ -25,13 +25,23 @@ public class Journal
         {
             foreach (Entry entry in _entries)
             {
-                outputFile.WriteLine($"{entry}");
+                outputFile.WriteLine(entry.ToFileString());
             }
         }
     }
 
     public void LoadFromFile(string file)
     {
-        // TODO: Add logic to read from file and parse entries
+        _entries.Clear();
+
+        string[] lines = File.ReadAllLines(file);
+        foreach (string line in lines)
+        {
+            Entry entry = Entry.FromFileString(line);
+            if (entry != null)
+            {
+                _entries.Add(entry);
+            }
+        }
     }
 }

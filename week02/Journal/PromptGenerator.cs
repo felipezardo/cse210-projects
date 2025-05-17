@@ -5,17 +5,19 @@ public class PromptGenerator
 {
     private List<string> _prompts = new List<string>
     {
-        "What was the best part of your day?",
-        "What did you learn today?",
-        "Who made your day better and why?",
-        "What challenge did you overcome today?",
-        "What are you grateful for today?"
+        "Who was the most interesting person I interacted with today?",
+        "What was the best part of my day?",
+        "How did I see the hand of the Lord in my life today?",
+        "What was the strongest emotion I felt today?",
+        "If I had one thing I could do over today, what would it be?",
+        "What am I most grateful for today?",
+        "What challenged me today, and how did I respond?"
     };
 
     public string GetRandomPrompt()
     {
-        Random rnd = new Random();
-        int index = rnd.Next(_prompts.Count);
+        Random random = new Random();
+        int index = random.Next(_prompts.Count);
         return _prompts[index];
     }
 }
